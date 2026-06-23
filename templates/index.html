@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    <div class="search-section">
+        <form action="{{ url_for('search') }}" method="get" class="search-form">
+            <input type="text" name="q" placeholder="🔍 Поиск по названию..." value="{{ search_query or '' }}">
+            <button type="submit">Найти</button>
+            {% if search_query %}
+                <a href="{{ url_for('index') }}">Сбросить</a>
+            {% endif %}
+        </form>
+    </div>
+
+    <div class="filters">
+        <span>Фильтр:</span>
+        <a href="{{ url_for('index') }}" class="btn {% if not request.args.get('status') %}active{% endif %}">Все</a>
+        <a href="{{ url_for('filter_status', status='хочу') }}" class="btn">Хочу</a>
+        <a href="{{ url_for('filter_status', status='куплено') }}" class="btn">Куплено</a>
+    </div>
+
+    <div class="total-price">
+        💰 Общая стоимость: <strong>{{ total_price }} ₽</strong>
+    </div>
+
+    {% if wishes %}
+        <div class="wish-list">
+            {% for wish in wishes %}
+                <div class="wish-card {% if wish.status == 'куплено' %}purchased{% endif %}">
+                    <h3>
+                        <a href="{{ url_for('detail_wish', wish_id=wish.id) }}">{{ wish.name }}</a>
+                    </h3>
+                    <div class="wish-info">
+                        <span class="price">💰 {{ wish.price }} ₽</span>
+                        <span class="status status-{{ wish.status }}">{{ wish.status }}</span>
+                    </div>
+                    <div class="wish-actions">
+                        <a href="{{ url_for('toggle_status', wish_id=wish.id) }}" class="btn-toggle">
+                            {% if wish.status == 'хочу' %}✅ Купить{% else %}↩️ Вернуть{% endif %}
+                        </a>
+                        <a href="{{ url_for('edit_wish', wish_id=wish.id) }}" class="btn-edit">✏️</a>
+                        <a href="{{ url_for('delete_wish', wish_id=wish.id) }}" class="btn-delete" onclick="return confirm('Удалить?')">🗑️</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="empty">✨ Список желаний пуст. Добавьте первое желание!</p>
+    {% endif %}
+{% endblock %}

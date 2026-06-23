@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "1",
+    "description": "w1q",
+    "price": 0,
+    "link": "",
+    "status": "хочу",
+    "created_at": "2026-06-23 06:29:53"
+  },
+  {
+    "id": 2,
+    "name": "1212",
+    "description": "2121",
+    "price": 22876,
+    "link": "https://drive.google.com/drive/folders/1A4sGuFycLabDr_s9haUI5UCD49dR4lr3",
+    "status": "хочу",
+    "created_at": "2026-06-23 06:48:24"
+  }
+]

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{ wish.name }}{% endblock %}
+
+{% block content %}
+    <div class="detail-card">
+        <h2>{{ wish.name }}</h2>
+        
+        <div class="detail-info">
+            <p><strong>Описание:</strong> {{ wish.description or 'Нет описания' }}</p>
+            <p><strong>💰 Цена:</strong> {{ wish.price }} ₽</p>
+            <p><strong>📅 Добавлено:</strong> {{ wish.created_at }}</p>
+            <p><strong>📎 Ссылка:</strong> 
+                {% if wish.link %}
+                    <a href="{{ wish.link }}" target="_blank">{{ wish.link }}</a>
+                {% else %}
+                    Нет ссылки
+                {% endif %}
+            </p>
+            <p><strong>📊 Статус:</strong> <span class="status status-{{ wish.status }}">{{ wish.status }}</span></p>
+        </div>
+        
+        <div class="detail-actions">
+            <a href="{{ url_for('edit_wish', wish_id=wish.id) }}" class="btn btn-primary">✏️ Редактировать</a>
+            <a href="{{ url_for('toggle_status', wish_id=wish.id) }}" class="btn btn-secondary">
+                {% if wish.status == 'хочу' %}✅ Купить{% else %}↩️ Вернуть{% endif %}
+            </a>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">⬅️ Назад</a>
+        </div>
+    </div>
+{% endblock %}

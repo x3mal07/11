@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eef1f5;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    color: #1a73e8;
+}
+
+header nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    color: #1a73e8;
+}
+
+/* Поиск */
+.search-section {
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid #dce1e8;
+    border-radius: 10px;
+}
+
+.search-form button {
+    padding: 10px 25px;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.search-form a {
+    padding: 10px 20px;
+    background: #eef1f5;
+    color: #555;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+/* Фильтры */
+.filters {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filters .btn {
+    padding: 6px 16px;
+    background: #eef1f5;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+}
+
+.filters .btn.active {
+    background: #1a73e8;
+    color: #fff;
+}
+
+/* Общая стоимость */
+.total-price {
+    background: #e8f0fe;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+/* Список желаний */
+.wish-list {
+    display: grid;
+    gap: 15px;
+}
+
+.wish-card {
+    padding: 18px 20px;
+    background: #f8f9fb;
+    border-radius: 12px;
+    border-left: 4px solid #1a73e8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.wish-card.purchased {
+    border-left-color: #2ecc71;
+    opacity: 0.7;
+}
+
+.wish-card h3 a {
+    color: #1e293b;
+    text-decoration: none;
+}
+
+.wish-card h3 a:hover {
+    color: #1a73e8;
+}
+
+.wish-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.status {
+    padding: 2px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.status-хочу {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-куплено {
+    background: #d4edda;
+    color: #155724;
+}
+
+.wish-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.wish-actions a {
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.btn-toggle {
+    background: #e8f0fe;
+    color: #1a73e8;
+}
+
+.btn-edit {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.btn-delete {
+    background: #fde8e8;
+    color: #c0392b;
+}
+
+/* Формы */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #dce1e8;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: #1a73e8;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #1557b0;
+}
+
+.btn-secondary {
+    background: #eef1f5;
+    color: #555;
+}
+
+.btn-secondary:hover {
+    background: #d5dce6;
+}
+
+.error {
+    color: #c0392b;
+    padding: 10px;
+    background: #fde8e8;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.empty {
+    text-align: center;
+    color: #94a3b8;
+    padding: 40px 0;
+    font-size: 18px;
+}
+
+.detail-card {
+    background: #f8f9fb;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.detail-info p {
+    margin: 10px 0;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #94a3b8;
+    border-top: 1px solid #eef1f5;
+    padding-top: 15px;
+}
